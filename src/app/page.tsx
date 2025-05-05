@@ -1,9 +1,30 @@
+import {
+  SignedIn,
+  SignedOut,
+  SignOutButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <div>
-      Home page
+      <SignedOut>
+        <SignUpButton>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded duration-300">
+            Sign up
+          </button>
+        </SignUpButton>
+      </SignedOut>
+      <UserButton/>
+      <SignedIn>
+        <SignOutButton>
+          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded duration-300">
+            Sign out
+          </button>
+        </SignOutButton>
+      </SignedIn>
     </div>
   );
 }
